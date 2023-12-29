@@ -2,6 +2,7 @@
 
 VERSION=1.0
 apt install curl -y
+yum install curl -y
 # printing greetings
 
 echo "DropBot mining setup script v$VERSION."
